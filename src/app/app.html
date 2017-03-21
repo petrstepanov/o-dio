@@ -1,0 +1,23 @@
+<ion-menu [content]="content">
+  <ion-content>
+    <img class="menu-logo" src="./assets/img/odio-logo.svg" />
+    <p class="subhead">Whatup Pete!</p>
+    <nav class="menu-nav">
+      <a class="menu-item" href="#" menuClose *ngFor="let p of pages" (click)="openPage(p)">
+        <svg [ngClass]="['icon', 'icon-'+p.icon]" class="icon icon-{{p.icon}}">
+          <use [attr.xlink:href]="'#icon-'+p.icon"></use>
+        </svg>
+        <span class="label">{{p.title}}</span>
+      </a>
+    </nav>
+    <!-- <ion-list>
+      <ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+
+      </ion-item>
+    </ion-list> -->
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

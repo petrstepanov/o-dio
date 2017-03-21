@@ -1,0 +1,162 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+// Fonts
+
+@font-face {
+    font-family: 'notosans';
+    src: url('../fonts/notosans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'notosansbold';
+    src: url('../fonts/notosans-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'notosansitalic';
+    src: url('../fonts/notosans-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'axis';
+    src: url('../fonts/axis.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-regular: 'notosans', Arial, Helvetica, sans-serif;
+$font-bold:    'notosansbold', Arial, Helvetica, sans-serif;
+$font-italic:  'notosansitalic', Arial, Helvetica, sans-serif;
+$font-display: 'axis', Arial, Helvetica, sans-serif;
+
+
+// Icons
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.icon-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+
+// Menu
+
+$menu-padding-x: 5.5rem;
+
+ion-menu {
+  .content {
+    background-color: color($colors, whitesmoke);
+  }
+
+  .menu-logo {
+    margin-left: $menu-padding-x;
+    margin-top: $navbar-height;
+    margin-bottom: .9rem;
+    width: $logo-width;
+  }
+
+  .subhead {
+    opacity: .35;
+    margin-left: $menu-padding-x;
+    font-size: $font-size-16;
+    font-family: $font-italic;
+  }
+
+  .menu-nav {
+    margin-top: 5em;
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      color: color($colors, dark);
+      padding-left: $menu-padding-x;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      text-decoration: none;
+
+      .icon {
+        font-size: 2rem;
+        margin-right: 1.8rem;
+        margin-bottom: 0.15rem;
+      }
+
+      .label {
+        font-size: $font-size-16;
+        text-transform: uppercase;
+        font-family: $font-display;
+      }
+    }
+  }
+}
+
+// Content shadow while menu is open
+// Placing click-transparent pseudo element over the view's element and showing it when menu opens
+.ios .menu-content-reveal {
+    box-shadow: none;
+    @media (min-width: $grid-responsive-md-break) {
+        box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.2);
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000000;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity $fast ease-out;
+        z-index: 100;
+    }
+    &.menu-content-open:after {
+        opacity: 0.25;
+    }
+}
+
+
+// Toolbar
+
+// Remove iOS toolbar stroke
+.header-ios .toolbar-ios:last-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+.toolbar-title {
+  font-family: $font-display;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: $font-size-16;
+}
